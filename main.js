@@ -8,7 +8,7 @@ async function fetchTopStories(count) {
 }
 
 async function fetchItemsLoop(itemIds, index, count) {
-  for (; index < count - 1; index++) {
+  for (; index < count; index++) {
     const itemId = itemIds[index];
 
     const response = await fetch(BASE_URL + `item/${itemId}.json`);
@@ -41,7 +41,7 @@ function displayPost(post) {
                         <span>-</span>
                         <a href="${post.commentsURL}" class="comments">${post.comments} comments</a>
                         <span>-</span>
-                        <span class="by">by ${post.by}</span>
+                        <a class="by" href="https://news.ycombinator.com/user?id=${post.by}">by ${post.by}</a>
                     </div>`;
 
   const newDiv = document.createElement("div");
